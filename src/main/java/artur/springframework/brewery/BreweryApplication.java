@@ -1,13 +1,13 @@
-package artur.springframework.brewey;
+package artur.springframework.brewery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BreweyApplication {
+public class BreweryApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BreweyApplication.class, args);
+		SpringApplication.run(BreweryApplication.class, args);
 	}
 
 }

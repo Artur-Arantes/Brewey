@@ -1,6 +1,6 @@
-package artur.springframework.brewey.services;
+package artur.springframework.brewery.services;
 
-import artur.springframework.brewey.web.model.BeerDto;
+import artur.springframework.brewery.web.model.BeerDto;
 import java.util.UUID;
 
 public interface BeerServices {

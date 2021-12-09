@@ -1,6 +1,6 @@
-package artur.springframework.brewey.services;
+package artur.springframework.brewery.services;
 
-import artur.springframework.brewey.web.model.CustomerDto;
+import artur.springframework.brewery.web.model.CustomerDto;
 import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

@@ -1,10 +1,10 @@
-package artur.springframework.brewey;
+package artur.springframework.brewery;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BreweyApplicationTests {
+class mBreweryApplicationTests {
 
 	@Test
 	void contextLoads() {

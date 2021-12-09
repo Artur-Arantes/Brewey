@@ -1,7 +1,7 @@
-package artur.springframework.brewey.web.controller;
+package artur.springframework.brewery.web.controller;
 
-import artur.springframework.brewey.services.BeerServices;
-import artur.springframework.brewey.web.model.BeerDto;
+import artur.springframework.brewery.services.BeerServices;
+import artur.springframework.brewery.web.model.BeerDto;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/beer")
 @RestController
 @RequiredArgsConstructor
+@Deprecated
 public class BeerController {
 
   private final BeerServices beerService;

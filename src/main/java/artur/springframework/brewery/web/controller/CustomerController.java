@@ -1,7 +1,7 @@
-package artur.springframework.brewey.web.controller;
+package artur.springframework.brewery.web.controller;
 
-import artur.springframework.brewey.services.CustomerService;
-import artur.springframework.brewey.web.model.CustomerDto;
+import artur.springframework.brewery.services.CustomerService;
+import artur.springframework.brewery.web.model.CustomerDto;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;

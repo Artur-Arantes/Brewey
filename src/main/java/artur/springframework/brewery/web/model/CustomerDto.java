@@ -1,5 +1,4 @@
-package artur.springframework.brewey.web.model;
-
+package artur.springframework.brewery.web.model;
 
 import java.util.UUID;
 import lombok.AllArgsConstructor;
@@ -11,9 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BeerDto {
+public class CustomerDto {
   private UUID id;
-  private String beerName;
-  private String beerStyle;
-  private Long upc;
+  private String name;
 }
