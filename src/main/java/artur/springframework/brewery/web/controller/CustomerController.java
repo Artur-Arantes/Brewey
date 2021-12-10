@@ -2,12 +2,16 @@ package artur.springframework.brewery.web.controller;
 
 import artur.springframework.brewery.services.CustomerService;
 import artur.springframework.brewery.web.model.CustomerDto;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
+import javax.validation.ConstraintViolationException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -49,5 +53,13 @@ public class CustomerController {
   @ResponseStatus(HttpStatus.NO_CONTENT)
   public void deleteBeer(@PathVariable("customerId") UUID beerId) {
     customerServices.deleteById(beerId);
+  }
+  @ExceptionHandler(ConstraintViolationException.class)
+  public ResponseEntity<List> validationErrorHandler(ConstraintViolationException e) {
+    List<String> errors = new ArrayList<>(e.getConstraintViolations().size());
+    e.getConstraintViolations().forEach(constraintViolation -> {
+      errors.add(constraintViolation.getPropertyPath() + " : " + constraintViolation.getMessage());
+    });
+    return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
   }
 }

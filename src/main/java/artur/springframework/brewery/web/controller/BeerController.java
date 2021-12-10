@@ -3,6 +3,7 @@ package artur.springframework.brewery.web.controller;
 import artur.springframework.brewery.services.BeerServices;
 import artur.springframework.brewery.web.model.BeerDto;
 import java.util.UUID;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -31,7 +32,7 @@ public class BeerController {
   }
 
   @PostMapping// create new beer
-  public ResponseEntity handlePost(@RequestBody BeerDto beerDto) {
+  public ResponseEntity handlePost(@Valid @RequestBody BeerDto beerDto) {
     BeerDto savedDto = beerService.save(beerDto);
     HttpHeaders headers = new HttpHeaders();
     //todo add hostname to url
@@ -41,7 +42,7 @@ public class BeerController {
 
   @PutMapping("/{beerId}")
   public ResponseEntity handleUpdate(@PathVariable("beerId") UUID beerId,
-                                     @RequestBody BeerDto beerDto) {
+                                     @Valid @RequestBody BeerDto beerDto) {
     beerService.updateBeer(beerId, beerDto);
 
     return new ResponseEntity(HttpStatus.NO_CONTENT);
