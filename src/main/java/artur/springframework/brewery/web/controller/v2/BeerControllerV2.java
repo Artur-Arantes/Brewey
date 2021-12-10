@@ -10,6 +10,8 @@ import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v2/beer")
@@ -40,8 +43,9 @@ public class BeerControllerV2 {
 
   @PostMapping// create new beer
   public ResponseEntity handlePost(@Valid @RequestBody BeerDtoV2 beerDto) {
-    BeerDtoV2 savedDto = beerService.save(beerDto);
-    HttpHeaders headers = new HttpHeaders();
+    log.debug("in handle post...");
+    val savedDto = beerService.save(beerDto);
+    val headers = new HttpHeaders();
     //todo add hostname to url
     headers.add("Location", " /api/v1/beer" + savedDto.getId().toString());
     return new ResponseEntity(headers, HttpStatus.CREATED);
