@@ -4,9 +4,9 @@ import artur.springframework.brewery.domain.Beer;
 import artur.springframework.brewery.web.model.BeerDto;
 import org.mapstruct.Mapper;
 
-@Mapper
-public interface BeerMapper {
-  BeerDto beerToBeerDto(Beer beer);
+@Mapper(uses = DateMapper.class)
+  public interface BeerMapper {
+    BeerDto beerToBeerDto(Beer beer);
 
-  Beer beerDtOToBeer(BeerDto dto);
-}
+    Beer beerDtoToBeer(BeerDto dto);
+  }

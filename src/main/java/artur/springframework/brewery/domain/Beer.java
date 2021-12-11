@@ -1,6 +1,7 @@
 package artur.springframework.brewery.domain;
 
 import artur.springframework.brewery.web.model.v2.BeerStyleEnum;
+import java.sql.Timestamp;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,4 +17,7 @@ public class Beer {
   private String beerName;
   private BeerStyleEnum beerStyle;
   private Long upc;
+
+  private Timestamp createdDate;
+  private Timestamp lastUpdatedDate;
 }
